@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            margin: 0 auto;
+            width: 108px;
+            height: 108px;
+            text-align: center;
+            list-style: none;
+            overflow: hidden;
+        }
+
+        ul li {
+            float: left;
+            margin: 10px;
+            width: 16px;
+            height: 16px;
+            background-color: pink;
+            background: url(../img/apple.png) no-repeat;
+            background-position: 0 0;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        var lis = document.querySelectorAll('li')
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].style.backgroundPosition =  '0 -'+ i*16 +'px'
+            
+        }
+    </script>
+</body>
+</html>

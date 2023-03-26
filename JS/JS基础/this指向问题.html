@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>BTN</button>
+    <script>
+        // this一般情况下this的最终指向是调用它的对象
+        //全局作用域或者普通函数中的this指向全局对象window 定时器里面的this也是指向window
+        console.log(this);
+
+        function fn() {
+            console.log(this);
+        }
+
+        fn()
+        window.setTimeout(function() {
+            console.log(this);
+        })
+        //方法中
+        var o = {
+            say: function(){
+                console.log(this)
+            }
+        }
+        o.say()
+        var btn = document.querySelector('button')
+        btn.addEventListener('click', function() {
+            console.log(this)
+        })
+
+        function User() {
+            console.log(this);
+        }
+
+        var user = new User()
+    </script>
+</body>
+</html>

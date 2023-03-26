@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 200px;
+            margin: 100px auto;
+            background-color: skyblue;
+
+        }
+
+        input {
+            width: 100px;
+            height: auto;
+        }
+
+        .ppp {
+            display: inline-block;
+            color: gray;
+        }
+
+        .wrong {
+            color:red;
+        }
+
+        .bingo {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="password">
+        <p class="ppp"></p>
+    </div>
+    <script>
+        var ipt = document.querySelector('input')
+        console.log(ipt)
+        var p = document.querySelector('.ppp')
+        console.log(p);
+        ipt.onfocus = function () {
+            p.className = 'ppp'
+            p.innerHTML = 'qsr6ws'
+        }
+
+        ipt.onblur = function () {
+            let pwd = this.value
+            console.log(pwd);
+            if(pwd.length < 6) {
+                p.className = 'ppp wrong'
+                p.innerHTML = 'mmbxdy6wws'
+            } else {
+                p.className = 'ppp bingo'
+                p.innerHTML = 'zq'
+            }
+        }
+    </script>
+</body>
+</html>

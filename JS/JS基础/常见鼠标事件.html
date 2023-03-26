@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gif {
+            position: absolute;
+        }
+    </style>
+</head>
+<body style="height:3000px">
+    <div>do NOT COPY</div>
+    <img class="gif" src="../img/g01.gif" alt="">
+    <script>
+        //禁用右键菜单
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault()
+        })
+        //禁用文本选择
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault()
+        })
+        //鼠标坐标
+        document.addEventListener('click', function(e) {
+            //鼠标在浏览器窗口可视区域的坐标
+            console.log(e.clientX);
+            console.log(e.clientY);
+            console.log('------------------');
+            //鼠标在当前页面的坐标
+            console.log(e.pageX);
+            console.log(e.pageY);
+        })
+        var gif = document.querySelector('.gif')
+        document.addEventListener('mousemove', function(e) {
+            gif.style.top = e.pageY + 'px'
+            gif.style.left = e.pageX + 'px'
+        })
+    </script>
+</body>
+</html>

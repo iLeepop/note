@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪元素</title>
+    <style>
+        .father {
+            height: 300px;
+            width: 400px;
+            background-color: pink;
+        }
+        /* 伪标签默认为行内元素 */
+        .father::before {
+            padding-right: 10px;
+            content: 'Mouse';
+        }
+
+        .father::after {
+            padding-left: 10px;
+            content: 'Rice';
+        }
+    </style>
+</head>
+<body>
+    <div class="father">LOVE</div>
+</body>
+</html>

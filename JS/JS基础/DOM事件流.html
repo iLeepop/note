@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .fa {
+            position: relative;
+            top: 100px;
+            margin: auto;
+            width: 500px;
+            height: 500px;
+            background-color: coral;
+        }
+
+        .son {
+            position: relative;
+            margin: auto;
+            top: 75px;
+            width: 350px;
+            height: 350px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="fa">fa
+        <div class="son">son</div>
+    </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul> 
+    <div class="t">ttt</div>
+    <script>
+        var son = document.querySelector('.son')
+        var fa = document.querySelector('.fa')
+        //捕获阶段 如果addEventListener 第三个参数是true那么则处于捕获阶段 document -> html -> body -> fa -> son
+        //false 或者不写则为冒泡阶段
+        // son.addEventListener('click', function() {
+        //     alert('son')
+        // }, true)
+        son.onclick = function(event) {
+            console.log(event);
+            //event就是一个事件对象 写到我们监听函数 小括号里面的 当形参来看
+            //事件对象只有事件才会存在 它是系统自动给我们创建的 不需要我们传递参数
+            //事件对象 是我们事件的一系列相关数据的集合 跟事件相关的 必如鼠标点击里面就包含了鼠标的相关信息，例如鼠标坐标，如果是键盘事件里面就包含键盘事件的信息 比如 判断用户按下了哪个键 
+        }
+        //event只需要定义实参e就行了
+        fa.addEventListener('click', function(e) {
+            e.preventDefault()
+            // e.returnValue 低版本浏览器
+            // return false 也可以阻止默认事件 特点：return后面的代码不执行 而且仅适用于传统注册方法
+            console.log(e.target);
+        }, true)
+        // document.addEventListener('click', function() {
+        //     alert('document')
+        // })
+        var ul = document.querySelector('ul')
+        ul.addEventListener('click', function(e) {
+            console.log(e.target);
+            console.log(this);
+        })
+        var t = document.querySelector('.t')
+        t.addEventListener('click', fn)
+        t.addEventListener('mouseover', fn)
+        t.addEventListener('mouseout', fn)
+        function fn(e) {
+            console.log(e.type);
+        }
+    </script>
+</body>
+</html>

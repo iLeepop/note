@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            margin: 0 auto;
+            color: black;
+            font-size: 30px;
+            transition: 0.7s;
+            text-decoration: none;
+        }
+        a:hover {
+            color: skyblue;
+        }
+        .log-main {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 368px;
+            top: 193px;
+            width: 670px;
+            height: 300px;
+            background-color: rgba(255, 192, 192, 0.712);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 3px 14px rgb(255, 190, 190);
+        }
+        .tz {
+            width: 670px;
+            height: 40px;
+            background-color: rgba(255, 165, 165, 0.712);
+            cursor: move;
+        }
+        .x {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+        }
+        .log-bg {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(128, 128, 128, 0.372);
+        }
+    </style>
+</head>
+<body>
+    <a href="javascipt:;">Login</a>
+    <div class="log-main">
+        <div class="tz">
+            <div class="x"></div>
+        </div>
+        <form action="">
+            <label for="uname"></label>
+            <input type="text" name="uname" id="uname">
+            <label for="pwd"></label>
+            <input type="password" name="pwd" id="pwd">
+            <input type="submit" value="Login">
+        </form>
+    </div>
+    <div class="log-bg"></div>
+    <script>
+        var a = document.querySelector('a')
+        var lm = document.querySelector('.log-main')
+        var x = document.querySelector('.x')
+        var tz = document.querySelector('.tz')
+        var bg = document.querySelector('.log-bg')
+        a.addEventListener('click', function() {
+            console.log('OPEN');
+            lm.style.display = 'block'
+            bg.style.display = 'block'
+        })
+        x.addEventListener('click', function() {
+            console.log('CLOSE');
+            lm.style.display = 'none'
+            bg.style.display = 'none'
+        })
+        tz.addEventListener('mousedown', function(e) {
+            console.log('MOUSEDOWN');
+            var x = e.pageX - lm.offsetLeft
+            var y = e.pageY - lm.offsetTop
+            document.addEventListener('mousemove', move)
+            function move(e) {
+                lm.style.left = e.pageX - x + 'px'
+                lm.style.top = e.pageY - y + 'px'
+            }
+            document.addEventListener('mouseup', function() {
+                document.removeEventListener('mousemove', move)
+            })
+        })
+    </script>
+</body>
+</html>

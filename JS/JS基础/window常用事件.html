@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 600px;
+            background-color: pink;
+        }
+    </style>
+    <script>
+        //所有资源加载完毕触发
+        window.addEventListener('load', function() {
+            // var btn = document.querySelector('button')
+            // btn.addEventListener('click', function() {
+            //     alert('!!!')
+            // })
+            alert('WWWW')
+        })
+        //完成DOM加载后触发
+        document.addEventListener('DOMContentLoaded', function() {
+            alert('DDDD')
+        })
+        //无法生效
+        // var btn = document.querySelector('button')
+        // btn.addEventListener('click', function() {
+        //     alert('!!!')
+        // })
+    </script>
+</head>
+<body>
+    <button>按钮</button>
+    <div class="box"></div>
+    <script>
+        var box = document.querySelector('.box')
+        //根据浏览器窗口大小更改页面
+        window.addEventListener('resize', function() {
+            console.log(this.innerWidth);
+            if(this.innerWidth <= 800){
+                box.style.display = 'none'
+            }else {
+                box.style.display = 'block'
+            }
+        })
+        //定时器setTimeout
+        //window.setTimeout(调用函数,延时时间)
+        //延时时间单位是毫秒 如果省略则默认是0
+        //调用函数可以直接使用函数名 还可以写作 '函数名()'
+        // setTimeout(function() {
+        //     alert('!!!!')
+        // }, 20000)
+        var timer = setTimeout(callback, 5000)
+        var timer2 = setTimeout(callback, 10000)
+        var timer3 = setTimeout(callback1, 13000)
+        // setTimeout('callback()', 5000) //不推荐
+
+        //清除定时器clearTimeout
+        //window.clearTimeout(定时器对象)
+        var btn = document.querySelector('button')
+        btn.addEventListener('click', function() {
+            clearTimeout(timer2)
+        })
+
+        //循环定时器setInterval
+        //window.setInterval(调用函数,延时时间)
+        setInterval(fn, 2000)
+
+        function callback() {
+            alert('1111')
+        }
+        function callback1() {
+            alert('2222')
+        }
+        function fn() {
+            console.log(123);
+        }
+    </script>
+</body>
+</html>

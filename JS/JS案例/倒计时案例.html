@@ -1,0 +1,77 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            position: relative;
+            top: 100px;
+            margin: auto;
+            width: 240px;
+            height: 80px;
+            /* background-color: black; */
+        }
+        span {
+            display: inline-block;
+            margin: 5px 0 5px 5px;
+            width: 60px;
+            height: 60px;
+            background-color: pink;
+            font-size: 50px;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            line-height: 60px;
+            translate: 0.3s;
+        }
+    </style>
+  </head>
+  <body>
+    <button>START</button>
+    <button>STOP</button>
+    <div class="box">
+        <span class="hour">00</span>
+        <span class="minute">00</span>
+        <span class="second">00</span>
+        <script>
+            var hour = document.querySelector('.hour')
+            var minute = document.querySelector('.minute')
+            var second = document.querySelector('.second')
+
+            var btns = document.querySelectorAll('button')
+
+            var timer = null
+
+            btns[0].addEventListener('click', function() {
+                countDown()
+                timer = setInterval(countDown, 1000)
+            })
+            btns[1].addEventListener('click', function() {
+                clearInterval(timer)
+            })
+
+            var inptimes = +new Date('2023-3-1 19:00:00')
+            function countDown() {
+                var nowTime = +new Date();
+
+                var times = (inptimes - nowTime) / 1000
+                var h = parseInt(times/60/60%24)
+                h = h < 10 ? '0' + h : h
+                hour.innerHTML = h
+                var m = parseInt(times/60%60)
+                m = m < 10 ? '0' + m : m
+                minute.innerHTML = m
+                var s = parseInt(times%60)
+                s = s < 10 ? '0' + s : s
+                second.innerHTML = s
+            }            
+        </script>
+    </div>
+  </body>
+  </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pink {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <button class="pink">btn1</button>
+    <button onclick="btn2()">btn2</button>
+    <button>btn3</button>
+    <button>btn4</button>
+    <script>
+        // let btns = document.querySelectorAll('button')
+
+        // for (let i = 0; i < btns.length; i++) {
+        //     btns[i].addEventListener('click', function () {
+        //         document.querySelector('.pink').className = ''
+        //         this.className = 'pink'
+        //         let uname = prompt('输入?')
+        //         let num = 11
+        //         document.write(`你输入的是${uname},数据类型为${typeof (num + +'11')}`)
+        //     })
+        // }
+
+        function btn2() {
+            let num = '11.99';
+            alert(`String-11.99,parseInt-${parseInt(num)},parseFloat-${parseFloat(num)},110px-parseFloat-${parseFloat('110px')}`)
+        }
+    </script>
+</body>
+</html>

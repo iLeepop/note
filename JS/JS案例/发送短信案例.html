@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"><button>SEND</button>
+    <script>
+        var btn = document.querySelector('button')
+        var time = 4
+        btn.addEventListener('click', function() {
+            btn.disabled = true
+            var timer = setInterval(function() {
+                if(time == -1){
+                    btn.disabled = false
+                    btn.innerHTML = 'RESEND'
+                    time = 4
+                    clearInterval(timer)
+                }else {
+                    btn.innerHTML = 'Wait for:' + time + 's';
+                    time--
+                }
+            }, 1000)
+        })
+
+
+    </script>
+</body>
+</html>

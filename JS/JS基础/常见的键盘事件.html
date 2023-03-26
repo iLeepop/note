@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            position: relative;
+            top: 100px;
+            margin: auto;
+            width: 200px;
+            height: 70px;
+            background-color: gray;
+            text-align: center;
+        }
+
+        .texts {
+            position: relative;
+            top: 3px;
+            margin: auto;
+            width: 180px;
+            height: 32px;
+            background-color: white;
+            font-size: 30px;
+            visibility: hidden;
+        }
+
+        .inp {
+            position: relative;
+            top: 7px;
+            margin: auto;
+            width: 170px;
+            height: 26px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="texts"></div>
+        <input class="inp" type="text" name="searchbox" value="" placeholder="请输入">
+    </div>
+    <script>
+        var inp = document.querySelector('input')
+        var dt = document.querySelector('.texts')
+        //keyup
+        document.addEventListener('keyup', function(e) {
+            console.log('up我弹起了' + e.keyCode);
+            if(e.keyCode == 83){
+                console.log('search')
+                inp.focus()
+            }
+            if(inp.value != ''){
+                dt.style.visibility = 'visible'
+                dt.innerText = inp.value
+            }else{
+                dt.style.visibility = 'hidden'
+            }
+        })
+        inp.addEventListener('blur', function() {
+            dt.style.visibility = 'hidden'
+        })
+        inp.addEventListener('focus', function() {
+            if(inp.value != ''){
+                dt.innerText = inp.value
+                dt.style.visibility = 'visible'
+            }
+        })
+        //keydown 能识别功能键 比如ctrl shift 左右键之类
+        document.addEventListener('keydown', function(e) {
+            console.log('down我按下了' + e.code);
+        })
+        //keypress 不能识别功能键 比如ctrl shift 左右键之类
+        document.addEventListener('keypress', function(e) {
+            console.log('press我在按' + e.code);
+        })
+        //执行顺序 onkeydown -> onkeypress -> onkeyup
+        //event.keyCode返回该键的ASCII值
+        //keyup和keydown事件不区分字母大小写---keypress事件区分大小写
+    </script>
+</body>
+</html>

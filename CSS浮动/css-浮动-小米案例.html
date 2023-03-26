@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xiaomianli</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            margin: 30px auto 0;
+            width: 1226px;
+            height: 614px;
+            /* background-color: pink; */
+        }
+
+        .left {
+            float: left;
+            width: 234px;
+            height: 614px;
+            background-color:blueviolet;
+        }
+
+        .right {
+            float: left;
+            margin-left: 14px;
+            width: 978px;
+            height: 614px;
+            /* background-color:darkorange; */
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .right li {
+            float: left;
+            margin-right: 14px;
+            width: 234px;
+            height: 300px;
+            background-color:aquamarine;
+        }
+
+        .right li:nth-child(4n) {
+            margin-right: 0px;
+        }
+
+        .right li:nth-child(-n+4) {
+            margin-bottom: 14px;
+        }
+        /*如果父级宽度不够会导致换行 */ 
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="left">left</div>
+        <div class="right">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

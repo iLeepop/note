@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <button>switchPic</button>
+    <img src="../img/107.jpg" alt="" title="107">
+    <script>
+        var btn = document.querySelector('button')
+        var img = document.querySelector('img')
+        let count = 1
+        btn.onclick = function () {
+            count = (count == 1) ? 0 : 1
+            if(count == 0) {
+                img.src = '../img/109.jpg'
+                img.title = '109'
+            }else {
+                img.src = '../img/107.jpg'
+                img.title = '107'
+            }
+        }
+    </script>
+</body>
+</html>
