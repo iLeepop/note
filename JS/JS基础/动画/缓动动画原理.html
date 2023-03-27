@@ -5,8 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .am {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
 </head>
 <body>
-    
+    <button class="run">CLICK RUN</button>
+    <button class="back">CLICK BACK</button>
+    <div class="am"></div>
+    <script>
+        let am = document.querySelector('.am')
+        let btnr = document.querySelector('.run')
+        let btnb = document.querySelector('.back')
+
+        function animate(obj, target, callBack) { //callBack添加的回调函数
+            clearInterval(obj.interval)
+            obj.interval = setInterval(() => {
+                if(obj.offsetLeft == target){
+                    clearInterval(obj.interval)
+                    if(callBack){ //判断是否有回调函数
+                        callBack()
+                    }
+                }
+                let rate = ((target - obj.offsetLeft)/10) //缓动动画的核心算法，(target - start)/10
+                rate = rate > 0 ? Math.ceil(rate) : Math.floor(rate) //按照数字的正负判断向下还是向上取整
+                obj.style.left = obj.offsetLeft + rate + 'px'
+            }, 30)
+        }
+
+        btnr.addEventListener('click', () => {
+            animate(am, 700, () => {
+                am.style.backgroundColor = 'skyblue'
+            })
+        })
+        btnb.addEventListener('click', () => {
+            animate(am, 100, () => {
+                am.style.backgroundColor = 'pink'
+            })
+        })
+    </script>
 </body>
 </html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fa {
+            position: fixed;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background-color: rgb(255, 139, 159);
+            line-height: 40px;
+            text-align: center;
+        }
+
+        span {
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: rgb(255, 139, 159);
+            transition: .5s;
+        }
+
+        .son {
+            position: absolute;
+            top: 0;
+            width: 160px;
+            height: 40px;
+            background-color: rgb(255, 139, 159);
+            line-height: 40px;
+            text-align: left;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="fa">
+        <span>⬅</span>
+        <div class="son">Q&A</div>
+    </div>
+    <script src="../jsMethod/animate.js"></script>
+    <script>
+        let fa = document.querySelector('.fa')
+        let son = document.querySelector('.son')
+        fa.addEventListener('mousemove', () => {
+            let far = fa.offsetWidth - son.offsetWidth
+            animate(son, far)
+            fa.children[0].innerHTML = '➡'
+        })
+        fa.addEventListener('mouseleave', () => {
+            animate(son, 0, () => {
+                fa.children[0].innerHTML = '⬅'
+            })
+        })
+    </script>
+</body>
+</html>
