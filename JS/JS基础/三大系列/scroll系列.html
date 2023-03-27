@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 150px;
+            height: 150px;
+            background-color: #fff;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        iLee_Fancy
+        iLee_Fancy
+        iLee_Fancy
+        iLee_Fancy
+        iLee_Fancy
+        iLee_Fancy
+        iLee_Fancy
+        iLee_Fancy
+        iLee_Fancy
+        iLee_Fancy
+        iLee_Fancy
+        iLee_Fancy
+        iLee_Fancy
+        iLee_Fancy
+        iLee_Fancy
+        iLee_Fancy
+        iLee_Fancy
+        iLee_Fancy
+        iLee_Fancy
+    </div>
+    <script>
+        let div = document.querySelector('div')
+        console.log(div.scrollTop); //被卷去的顶部长度
+        console.log(div.scrollLeft); //被卷去的左侧长度
+        console.log(div.scrollWidth); //包括可卷动区域的宽度
+        console.log(div.scrollHeight); //包括可卷动的区域的高度
+        div.addEventListener('scroll', function() {
+            console.log(div.scrollTop);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .am {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <button>CLICK RUN</button>
+    <div class="am"></div>
+    <script>
+        let am = document.querySelector('.am')
+        let btn = document.querySelector('button')
+
+        // let amLeft = am.offsetLeft
+        // setInterval(function() {
+        //     am.style.left = am.offsetLeft + 1 + 'px'
+        // }, 30);
+
+        // let int01 = setInterval(anime, 30)
+        // function anime() {
+        //     if(am.offsetLeft >= 300){
+        //         clearInterval(int01)
+        //     }
+        //     am.style.left = am.offsetLeft + 1 + 'px'
+        // }
+
+        //函数封装
+        // function animate(obj, target, rate) {
+        //     let interval = setInterval(() => {
+        //         if(obj.offsetLeft >= target){
+        //             clearInterval(interval)
+        //         }
+        //         obj.style.left = obj.offsetLeft + rate + 'px'
+        //     }, 30)
+        // }
+        
+        // var obj = {}
+        // obj.name = 'interval'
+
+        function animate(obj, target, rate) {
+            //解决方法001:
+            clearInterval(obj.interval)
+            obj.interval = setInterval(() => {
+                if(obj.offsetLeft >= target){
+                    clearInterval(interval)
+                }
+                obj.style.left = obj.offsetLeft + rate + 'px'
+            }, 30)
+        }
+
+        //点击按钮才走 bug:快速点击导致div移动异常 原因:开启了太多定时器 解决方法001:执行方法前清除循环定时器
+        btn.addEventListener('click', () => {
+            animate(am, 500, 2)
+        })
+    </script>
+</body>
+</html>
