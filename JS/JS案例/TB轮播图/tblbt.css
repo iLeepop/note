@@ -25,6 +25,7 @@ ul {
     width: 30px;
     height: 50px;
     background-color: #c0b8b89d;
+    cursor: pointer;
 }
 
 .arrow-l {
@@ -50,6 +51,7 @@ ul {
     display: block;
     width: 960px;
     height: 540px;
+    cursor: default;
 }
 
 .img-roll li img {
@@ -58,26 +60,26 @@ ul {
 }
 
 .olist {
+    display: none;
     position: absolute;
     left: 50%;
-    margin-left: -55px;
+    transform: translate(-50%);
     bottom: 20px;
     width: auto;
     height: auto;
-    list-style: circle;
-    list-style-position: inside;
-    font-size: 40px;
-    color: #c0b8b89d;
+    font-size: 0;
+    cursor: pointer;
 }
 
 .olist li {
     float: left;
-    margin: 20px;
-    width: 20px;
-    height: 20px;
+    margin: 0 10px;
+    width: 10px;
+    height: 10px;
+    border: .3px solid #2d2a2a9d;
+    border-radius: 50%;
 }
 
 .current-ol {
-    list-style: disc;
-    color: #c0b8b89d;
+    background-color: #2d2a2a9d;
 }
