@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.jz {
+    margin: 0 auto 30px;
+}
+
+#T {
+    width: 1000px;
+    height: 200px;
+    background-color: pink;
+}
+
+#S {
+    width: 1000px;
+    height: 400px;
+    background-color: rgb(72, 81, 247);
+}
+
+#Z {
+    width: 1000px;
+    height: 600px;
+    background-color: rgb(62, 255, 143);
+}
+
+.cbl {
+    position: absolute;
+    top: 230px;
+    width: 60px;
+    height: 135px;
+    background-color: seagreen;
+    left: 1370px;
+}
+
+span {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 1px;
+    display: none;
+    width: 58px;
+    height: 58px;
+    background-color: #96ff98;
+    text-align: center;
+    cursor: pointer;
+
+}
+
+#X {
+    width: 1000px;
+    height: 300px;
+    background-color: rgb(255, 93, 244);
+}
+
+#W {
+    width: 1000px;
+    height: 200px;
+    background-color: rgb(61, 32, 37);
+}

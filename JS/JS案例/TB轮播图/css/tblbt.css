@@ -15,6 +15,7 @@ ul {
     width: 960px;
     height: 540px;
     transform: translate(-50%, -50%);
+    overflow: hidden;
 }
 
 .sp {
@@ -29,16 +30,22 @@ ul {
 }
 
 .arrow-l {
+    border-radius: 0 20px 20px 0;
     left: 0;
 }
 
 .arrow-r {
+    border-radius: 20px 0 0 20px;
     right: 0;
 }
 
 .img-roll {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 600%;
     height: 540px;
+    z-index: -1;
 }
 
 .img-roll li {
@@ -67,17 +74,23 @@ ul {
     bottom: 20px;
     width: auto;
     height: auto;
+    border-radius: 10px;
+    background-color: #6969699c;
     font-size: 0;
-    cursor: pointer;
 }
 
 .olist li {
     float: left;
-    margin: 0 10px;
+    margin: 4px 6px;
     width: 10px;
     height: 10px;
-    border: .3px solid #2d2a2a9d;
+    /* border: .3px solid #2d2a2a9d; */
     border-radius: 50%;
+    cursor: pointer;
+}
+
+.not-current-ol {
+    background-color: #f4e9e99d;
 }
 
 .current-ol {
