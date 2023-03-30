@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tou {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="tou"></div>
+    <script>
+        let tou = document.querySelector('.tou')
+        let touchX = 0
+        let touchY = 0
+        let x = 0
+        let y = 0
+        tou.addEventListener('touchstart', function(e) {
+            // console.log(e);
+            //touches 指正在触摸屏幕的手指的列表
+            //targeTouches 指正在触摸当前DOM元素的手指的列表
+            //如果侦听的是同一个元素 那它们两个的值一样
+            //changedTouches 手指状态发生了改变的手指列表 从无到有 or 从有到无
+            touchX = e.targetTouches[0].pageX
+            touchY = e.targetTouches[0].pageY
+            x = this.offsetLeft
+            y = this.offsetTop
+        })
+        tou.addEventListener('touchmove', function(e) {
+            var moveX = e.targetTouches[0].pageX - touchX
+            var moveY = e.targetTouches[0].pageY - touchY
+            this.style.left = x + moveX + 'px'
+            this.style.top = y + moveY + 'px'
+        })
+        tou.addEventListener('touchend', (e) => {
+            // console.log(e);
+            //当我们手指离开屏幕 touches 和 targetTouches就没有 列表 值 了
+            //当是会有changedTouches
+        })
+    </script>
+</body>
+</html>
