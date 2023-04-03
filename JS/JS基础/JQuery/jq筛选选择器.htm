@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <ul>
+        <li class="first">FAN2Cury</li>
+        <li>FAN2Cury</li>
+        <li>FAN2Cury</li>
+        <li>FAN2Cury</li>
+        <li>FAN2Cury</li>
+        <li class="last">FAN2Cury</li>
+    </ul>
+    <script>
+        $(function() {
+            $('ul li:odd').css('color', 'red') //选择奇数
+            $('ul li:even').css('color', 'green') //选择偶数
+            $('ul li:first').css('color', 'blue') //选择第一个
+            $('ul li:last').css('color', 'black') //选择最后一个
+            $('ul li:eq(2)').css('background', 'pink') //eq(index) 选择索引为index的 index从0开始
+
+            $('li').parent() //查找父级 parent()
+            $('ul').children('li') //查找最近一级(亲儿子) 相当于 $('ul>li') children(selector)
+            $('ul').find('li') //查找后代 相当于 $('ul li') find(selector)
+            $('.first').siblings('li') //查找兄弟节点 不包括自身 siblings(selector)
+            $('.first').nextAll() //查找当前元素之后所有的同辈元素 nextAll([expr])
+            $('.last').prevAll() //查找当前元素之前所有的同辈元素 prevAll([expr])
+            $('li').hasClass('first') //检查当前的元素是否含有特定的类，如果有则返回true hasClass(class)
+            $('ul li').eq(2) //相当于 $('ul li:eq(2)') index从0开始 eq(index)
+        })
+    </script>
+</body>
+</html>

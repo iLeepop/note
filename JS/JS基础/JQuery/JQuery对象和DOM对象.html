@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.4.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="only"></div>
+    <div>
+        <ul>
+            <li class="current"></li>
+            <li></li>
+            <li>
+                <ul>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </li>
+        </ul>
+        <ol>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+    <div class="one"></div>
+    <span></span>
+    <script>
+        //DOM对象 通过原生js获取的对象
+        let mydiv = document.querySelector('div')
+        let span = document.querySelector('span')
+        console.log(mydiv)
+        console.log(span);
+        //JQuery对象 通过JQuery获取的对象 本质 通过$将DOM元素进行了封装
+        $('div')
+        console.log($('div'))
+        console.log($('span'))
+        //通过JQuery获取的对象只能用JQuery的方法 DOM元素则使用原生javaScript的属性和方法
+
+        //JQuery对象与DOM对象 相互转换
+        //mydiv DOM对象->JQuery对象
+        // $(mydiv).hide()
+        //$('div') JQuery对象->DOM对象
+        //第一种方式
+        // $('div')[0].style.display = 'none'
+        //第二种方式
+        $('div').get(0).style.display = 'none'
+    </script>
+</body>
+</html>

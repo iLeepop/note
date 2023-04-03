@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.4.min.js"></script>
+    <style>
+        .one {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // $('.one').hide()
+        //等DOM页面加载完毕后执行
+        //第一种方式 推荐
+        $(function() {
+            $('.one').hide()
+        })
+        //第二种方式
+        // $(document).ready(function() {
+        //     $('.one').hide()
+        // })
+
+        // $是JQuery的别称 同时 $也是JQuery的顶级对象
+
+        //JQuery选择器
+        $('*') // all element selector
+        $('#only') // #id selector
+        $('.one') // .class selector
+        $('div') // tag selector
+        $('div,ul,span') // one,two,three selector
+        $('li.current') // tag.class selector
+
+        $('ul>li') // father>son selector
+        $('ul li') // father (son & grandson) selector
+    </script>
+    <div class="one"></div>
+    
+</body>
+</html>

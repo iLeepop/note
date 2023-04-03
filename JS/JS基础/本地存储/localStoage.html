@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="ipt" placeholder="uname Please">
+    <button class="set">SetData</button>
+    <button class="get">GetData</button>
+    <button class="del">DelData</button>
+    <button class="clear">ClearAllData</button>
+    <script>
+        let ipt = document.querySelector('.ipt')
+        let set = document.querySelector('.set')
+        let get = document.querySelector('.get')
+        let del = document.querySelector('.del')
+        let clear = document.querySelector('.clear')
+        set.addEventListener('click', () => {
+            var value = ipt.value
+            localStorage.setItem('uname', value)
+        })
+        get.addEventListener('click', () => {
+            console.log(localStorage.getItem('uname'))
+        })
+        del.addEventListener('click', () => {
+            localStorage.removeItem('uname')
+        })
+        clear.addEventListener('click', () => {
+            localStorage.clear()
+        })
+    </script>
+</body>
+</html>

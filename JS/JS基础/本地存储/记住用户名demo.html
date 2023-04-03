@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="ipt" placeholder="uname please"><input type="checkbox" class="check">Remeber uname<br>
+    <input type="text" class="pwd" placeholder="passwod please"><br>
+    <button class="login">Login</button>
+    <script>
+        let ipt = document.querySelector('.ipt')
+        let pwd = document.querySelector('.pwd')
+        let check = document.querySelector('.check')
+        let login = document.querySelector('.login')
+        if(localStorage.getItem('uname')){
+            ipt.value = localStorage.getItem('uname')
+            check.checked = true
+        }
+        login.addEventListener('click', () => {
+            if(check.checked){
+                var uname = ipt.value
+                localStorage.setItem('uname', uname)
+            }else{
+                localStorage.removeItem('uname')
+            }
+        })
+    </script>
+</body>
+</html>
