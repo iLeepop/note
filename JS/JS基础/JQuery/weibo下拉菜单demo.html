@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="./lib/jquery-3.6.4.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -31,6 +32,10 @@
         .nav>.unit>a {
             width: 70px;
             height: 30px;
+        }
+
+        .unit>ul {
+            display: none;
         }
     </style>
 </head>
@@ -69,5 +74,16 @@
             </ul>
         </li>
     </ul>
+    <script>
+        $(function() {
+            $('.unit').mouseover(function() {
+                $(this).children('ul').show()
+            })
+            $('.unit').mouseout(function() {
+                $(this).children('ul').hide()
+
+            })
+        })
+    </script>
 </body>
 </html>
