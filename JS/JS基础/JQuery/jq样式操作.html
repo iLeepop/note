@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.4.min.js"></script>
+    <style>
+        div {
+            position: relative;
+            left: 50%;
+            margin-left: -150px;
+            width: 300px;
+            height: 250px;
+            background-color: pink;
+            transition: all .5s;
+        }
+
+        .current {
+            background-color: skyblue;
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <div>
+    </div>
+    <script>
+        $(function() {
+            //console.log($('div').css('width')) //参数只写属性名 返回属性值
+            //$('div').css('width', '400px') //参数写属性名(要加引号) 属性值(值如果是数字可以不用加引号和单位) 并用逗号分隔 是一组属性 会设置样式
+            //$('div').css({'width':500, backgroundColor:'black'}) //参数可以写为数组形式 可以方便设置多组样式 属性名和属性值用冒号分隔 属性名可以不加引号
+            $('div').mouseover(function() {
+                //$(this).addClass('current') //$(el).addClass 添加类
+                //$(this).removeClass('current') //$(el).removeClass 删除类
+                $(this).toggleClass('current') // $(el).toggleClass 切换类
+            })
+
+            $('div').mouseout(function() {
+                $(this).toggleClass('current')
+            })
+
+            //原生js的类操作 className会覆盖原有元素
+            //jq操作元素只针对指定类进行操作 不影响原先类名
+        })
+    </script>
+</body>
+</html>

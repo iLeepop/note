@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.4.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .wapper {
+            position: relative;
+            left: 50%;
+            transform: translate(-50%);
+            width: 656px;
+            height: 324px;
+            border: .3px solid black;
+        }
+
+        .wapper>ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 80px;
+            height: 324px;
+        }
+
+        .wapper>ul>li {
+            width: 80px;
+            height: 80.5px;
+            background-color: rgb(141, 141, 141);
+            text-align: center;
+            line-height: 81px;
+            font-size: larger;
+            font-weight: bolder;
+        }
+
+        .wapper>ul>li:nth-child(n - 1) {
+            border-bottom: .5px solid black;
+        }
+
+        .wapper>ul>li:hover {
+            background-color: #555555;
+        }
+
+        .wapper>ul>li>a {
+            color: aliceblue;
+        }
+
+        .contain {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 576px;
+            height: 324px;
+        }
+
+        .contain>div {
+            display: none;
+        }
+
+        .contain>div:first-child {
+            display: block;
+        }
+
+        .contain img {
+            width: 576px;
+            height: 324px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wapper">
+        <ul id="cl">
+            <li><a href="">106</a></li>
+            <li><a href="">107</a></li>
+            <li><a href="">108</a></li>
+            <li><a href="">109</a></li>
+        </ul>
+        <div class="contain">
+            <div><img src="./img/106.jpeg" alt=""></div>
+            <div><img src="./img/107.jpg" alt=""></div>
+            <div><img src="./img/108.jpg" alt=""></div>
+            <div><img src="./img/109.jpg" alt=""></div>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            $('#cl>li').mouseover(function() {
+                let index = $(this).index()
+                // $('.contain>div').eq(index).show()
+                // $('.contain>div').eq(index).siblings('div').hide()
+                
+                //链式编程
+                $('.contain>div').eq(index).show().siblings('div').hide()
+            })
+        })
+    </script>
+</body>
+</html>

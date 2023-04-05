@@ -76,12 +76,35 @@
     </ul>
     <script>
         $(function() {
-            $('.unit').mouseover(function() {
-                $(this).children('ul').show()
-            })
-            $('.unit').mouseout(function() {
-                $(this).children('ul').hide()
+            // $('.unit').mouseover(function() {
+            //     $(this).children('ul').show()
+            // })
+            // $('.unit').mouseout(function() {
+            //     $(this).children('ul').hide()
 
+            // })
+
+            //modified .slide([speed],[easing],[fn])
+            // $('.unit').mouseover(function() {
+            //     $(this).children('ul').slideDown()
+            // })
+            // $('.unit').mouseout(function() {
+            //     $(this).children('ul').slideUp()
+
+            // })
+
+            //modified .hover([overfn],[outfn])
+            // $('.unit').hover(function(){
+            //     $(this).children('ul').slideDown(200)
+            // },function(){
+            //     $(this).children('ul').slideUp(200)
+            // })
+
+            //modified .hover([overfn|outfn])
+            $('.unit').hover(function() {
+                // $(this).children('ul').slideToggle(200)
+                //modified .stop()
+                $(this).children('ul').stop().slideToggle(200)
             })
         })
     </script>
