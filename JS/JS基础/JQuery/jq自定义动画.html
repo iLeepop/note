@@ -15,11 +15,27 @@
         ul {
             list-style: none;
         }
+        .app {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            transition: .5s;
+        }
     </style>
 </head>
 <body>
+    <button class="btn">动起来</button>
+    <div class="app"></div>
     <script>
         $(function() {
+            $('.btn').click(function(){
+                $('.app').animate({
+                    left: 500,
+                    top: 100,
+                    opacity: .5
+                }, 500);
+            })
         })
     </script>
 </body>
